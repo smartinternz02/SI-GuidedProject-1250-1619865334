@@ -1,0 +1,36 @@
+int ldrval=analogRead(15);
+ float h = dht.readHumidity();
+ float t = dht.readTemperature();
+ float f = dht.readTemperature(true);
+  if (isnan(h) || isnan(t) || isnan(f)) {
+    Serial.println("Failed to read from DHT sensor!");
+
+  }
+  else
+  {
+  Serial.print("Humidity: ");
+  Serial.println(h);
+  Serial.print("%  Temperature: ");
+  Serial.println(t);
+  Serial.print("°C ");
+  Serial.println(f);
+  Serial.print("the LDR intensity is:");
+  Serial.println(ldrval);
+  display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(0, 10);
+    display.println(" ");
+    display.print("the ldr intensity is ");
+    display.println(ldrval);
+    display.print("Humidity: ");
+    display.print(h);
+    display.println("%");
+    display.print("Temparature: ");
+    display.print(t);
+    display.println("°C ");
+    display.print(f)
+    
+    display.display();
+}
+}
